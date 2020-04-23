@@ -60,9 +60,9 @@ export const constantRoutes = [
   },
 
   {
-    path: '/' ,
+    path: '/cate' ,
     component: Layout ,
-    meta: { title: '分类', icon: 'cate' },
+    meta: { title: '分类管理', icon: 'cate' },
     redirect: 'cate',
     children: [
       {
@@ -75,7 +75,22 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path : "/article" ,
+    component : Layout ,
+    meta: {title:'文章管理',icon:'education'},
+    redirect: 'article' ,
+    children: [
+      {
+        path: 'article' ,
+        name: 'article' ,
+        component: ()=>import('@/views/article/Article'),
+        meta: {
+          title: '文章列表'
+        }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

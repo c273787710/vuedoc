@@ -26,8 +26,8 @@ router.beforeEach(async(to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      const hasGetUserInfo = store.getters.name
-      if (hasGetUserInfo) {
+      const hasAdminLogin = store.getters.isLogin
+      if (hasAdminLogin) {
         next()
       } else {
         try {

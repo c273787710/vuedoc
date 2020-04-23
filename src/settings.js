@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: '后台管理系统',
 
   /**
    * @type {boolean} true | false
@@ -14,4 +14,5 @@ module.exports = {
    */
   sidebarLogo: true,
   tagsView : true ,
+  logo : "https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png"
 }

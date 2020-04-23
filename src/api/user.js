@@ -1,21 +1,20 @@
 import request from '@/utils/request'
-
+//通过用户名和密码登陆后台
 export function login(data) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: '/api/admin/login',
     method: 'post',
     data
   })
 }
-
-export function getInfo(token) {
+//通过token和uid获取用户信息
+export function getInfo() {
   return request({
-    url: '/vue-admin-template/user/info',
+    url: '/api/admin/login',
     method: 'get',
-    params: { token }
   })
 }
-
+//退出登陆
 export function logout() {
   return request({
     url: '/vue-admin-template/user/logout',
