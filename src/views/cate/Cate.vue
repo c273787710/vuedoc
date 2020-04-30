@@ -5,6 +5,7 @@
       添加分类
     </el-button>
   </div>
+  <el-divider content-position="left">分类数据列表</el-divider>
   <el-table :data="tableData" style="width: 100%" border empty-text="文章分类为空" highlight-current-row>
     <el-table-column label="ID" width="50" align="center">
       <template slot-scope="scope">
@@ -16,23 +17,23 @@
         <span>{{ scope.row.cate_name }}</span>
       </template>
     </el-table-column>
-    <el-table-column label="访问次数" align="center">
+    <el-table-column label="访问次数" align="center" width="100px">
       <template slot-scope="scope">
         <span>{{ scope.row.lock_times }}</span>
       </template>
     </el-table-column>
-    <el-table-column label="状态" align="center">
+    <el-table-column label="状态" align="center" width="100px">
       <template slot-scope="scope">
         <el-button v-if="scope.row.status == 1" type="success" icon="el-icon-check" size="mini" circle></el-button>
         <el-button v-else type="danger" icon="el-icon-close" size="mini" circle></el-button>
       </template>
     </el-table-column>
-    <el-table-column label="排序" align="center">
+    <el-table-column label="排序" align="center" width="90px">
       <template slot-scope="scope">
         <span>{{ scope.row.sort }}</span>
       </template>
     </el-table-column>
-    <el-table-column label="是否为导航" align="center">
+    <el-table-column label="是否为导航" align="center" width="100px">
       <template slot-scope="scope">
         <el-button v-if="scope.row.is_index == 1" type="success" icon="el-icon-check" size="mini" circle></el-button>
         <el-button v-else type="danger" icon="el-icon-close" size="mini" circle></el-button>
@@ -41,13 +42,13 @@
     <el-table-column label="添加时间" align="center">
       <template slot-scope="scope">
         <i class="el-icon-time"></i>
-        <span style="margin-left: 10px">{{ formatDate(scope.row.add_time) }}</span>
+        <span style="margin-left: 10px">{{ scope.row.add_time | dateFormat }}</span>
       </template>
     </el-table-column>
     <el-table-column label="最后更新时间" align="center">
       <template slot-scope="scope">
         <i class="el-icon-time"></i>
-        <span style="margin-left: 10px">{{ formatDate(scope.row.update_time) }}</span>
+        <span style="margin-left: 10px">{{ scope.row.update_time | dateFormat  }}</span>
       </template>
     </el-table-column>
 
@@ -258,16 +259,6 @@
         this.addFormVisible = false
         this.actionType = 0
       },
-      formatDate(row) {
-        let date = new Date(parseInt(row) * 1000);
-        let Y = date.getFullYear() + '-';
-        let M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) + '-' : date.getMonth() + 1 + '-';
-        let D = date.getDate() < 10 ? '0' + date.getDate() + ' ' : date.getDate() + ' ';
-        let h = date.getHours() < 10 ? '0' + date.getHours() + ':' : date.getHours() + ':';
-        let m = date.getMinutes()  < 10 ? '0' + date.getMinutes() + ':' : date.getMinutes() + ':';
-        let s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
-        return Y + M + D + h + m + s;
-      },
       addCateBtn(){
         this.addFormVisible = true
         this.actionType = 1
@@ -278,7 +269,4 @@
 </script>
 
 <style scoped>
-.filter-container{
-  margin-bottom: 20px;
-}
 </style>

@@ -1,6 +1,7 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken,removeUid, setUid } from '@/utils/auth'
 import { resetRouter } from '@/router'
+import { Message } from 'element-ui'
 
 const getDefaultState = () => {
   return {
@@ -59,7 +60,12 @@ const actions = {
   // 退出登陆
   logout({ commit, state }) {
     return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
+      logout(state.token).then((res) => {
+        Message({
+          message: res.msg ,
+          type: 'success',
+          duration: 5 * 1000
+        })
         removeToken() // must remove  token  first
         removeUid()
         resetRouter()

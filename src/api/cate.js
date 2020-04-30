@@ -10,7 +10,7 @@ export function AddCate(data) {
 
 export function GetCateList() {
   return request({
-    url : "/api/admin/cate/list"
+    url : "/api/admin/cate/list",
   })
 }
 

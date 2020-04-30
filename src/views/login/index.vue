@@ -152,8 +152,7 @@ $cursor: #fff;
       caret-color: #515a6e;
       padding: 0 3px;
       &:-webkit-autofill {
-        box-shadow: 0 0 0 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+        box-shadow: 0 0 0 1000px $light_gray inset !important;
       }
     }
   }

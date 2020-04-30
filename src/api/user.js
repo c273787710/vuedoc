@@ -17,7 +17,6 @@ export function getInfo() {
 //退出登陆
 export function logout() {
   return request({
-    url: '/vue-admin-template/user/logout',
-    method: 'post'
+    url: '/api/admin/logout'
   })
 }

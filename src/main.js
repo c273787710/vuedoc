@@ -35,7 +35,29 @@ Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-
+Vue.filter("dateFormat",function(row){
+  let date = new Date(parseInt(row) * 1000);
+      let Y = date.getFullYear() + "年";
+      let M =
+        date.getMonth() + 1 < 10
+          ? "0" + (date.getMonth() + 1) + "月"
+          : date.getMonth() + 1 + "月";
+      let D =
+        date.getDate() < 10
+          ? "0" + date.getDate() + "日 "
+          : date.getDate() + "日 ";
+      let h =
+        date.getHours() < 10
+          ? "0" + date.getHours() + ":"
+          : date.getHours() + ":";
+      let m =
+        date.getMinutes() < 10
+          ? "0" + date.getMinutes() + ":"
+          : date.getMinutes() + ":";
+      let s =
+        date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      return Y + M + D + h + m + s;
+})
 new Vue({
   el: '#app',
   router,
